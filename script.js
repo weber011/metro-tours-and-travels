@@ -136,4 +136,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Background Slider Logic ---
+    const bgSliders = document.querySelectorAll('.bg-slider');
+    bgSliders.forEach(slider => {
+        const images = slider.querySelectorAll('img');
+        if (images.length > 1) {
+            let currentIndex = 0;
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 5000); // Change image every 5 seconds
+        }
+    });
+
 });
